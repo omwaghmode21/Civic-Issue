@@ -1,0 +1,67 @@
+[2025-09-17 09:50:44,755] 34 root - INFO - Entered Data Ingestion component
+[2025-09-17 09:50:44,777] 38 root - INFO - Dataset read successfully from notebooks\data\raw\Dummy_DataSet.csv. Shape: (480, 4)
+[2025-09-17 09:50:44,789] 45 root - INFO - Raw dataset saved at artifacts\priority_raw.csv
+[2025-09-17 09:50:44,789] 48 root - INFO - Splitting dataset into train and test sets
+[2025-09-17 09:50:44,798] 54 root - INFO - Train dataset saved at artifacts\priority_train.csv
+[2025-09-17 09:50:44,799] 55 root - INFO - Test dataset saved at artifacts\priority_test.csv
+[2025-09-17 09:50:44,799] 56 root - INFO - Data ingestion completed successfully
+[2025-09-17 09:50:44,804] 73 root - INFO - Starting data validation process
+[2025-09-17 09:50:44,808] 76 root - INFO - Dataset loaded successfully from artifacts\priority_raw.csv
+[2025-09-17 09:50:44,808] 25 root - INFO - Validating dataset columns
+[2025-09-17 09:50:44,808] 29 root - INFO - All expected columns are present
+[2025-09-17 09:50:44,808] 35 root - INFO - Checking for missing values
+[2025-09-17 09:50:44,809] 43 root - INFO - No missing values found
+[2025-09-17 09:50:44,809] 50 root - INFO - Checking for duplicate rows
+[2025-09-17 09:50:44,827] 53 root - WARNING - 65 duplicate rows detected. Dropping duplicates.
+[2025-09-17 09:50:44,832] 63 root - INFO - Validating admin_priority labels
+[2025-09-17 09:50:44,837] 67 root - INFO - All priority labels are valid
+[2025-09-17 09:50:44,838] 84 root - INFO - Data validation completed successfully
+[2025-09-17 09:50:44,887] 54 root - INFO - Starting data transformation
+[2025-09-17 09:50:44,897] 31 root - INFO - Creating ColumnTransformer for preprocessing
+[2025-09-17 09:50:44,899] 42 root - INFO - Preprocessor created successfully
+[2025-09-17 09:50:44,939] 71 root - INFO - Data transformation completed successfully
+[2025-09-17 09:50:45,377] 40 root - INFO - Starting model training...
+[2025-09-17 09:50:45,377] 64 root - INFO - Training Random Forest...
+[2025-09-17 09:50:46,267] 74 root - INFO - Random Forest Accuracy: 0.9236
+[2025-09-17 09:50:46,276] 75 root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.88      0.94      0.91        48
+           1       0.96      0.92      0.94        48
+           2       0.94      0.92      0.93        48
+
+    accuracy                           0.92       144
+   macro avg       0.93      0.92      0.92       144
+weighted avg       0.93      0.92      0.92       144
+
+[2025-09-17 09:50:46,276] 64 root - INFO - Training XGBoost...
+[2025-09-17 09:50:46,627] 74 root - INFO - XGBoost Accuracy: 0.8958
+[2025-09-17 09:50:46,640] 75 root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.83      0.90      0.86        48
+           1       0.94      0.92      0.93        48
+           2       0.93      0.88      0.90        48
+
+    accuracy                           0.90       144
+   macro avg       0.90      0.90      0.90       144
+weighted avg       0.90      0.90      0.90       144
+
+[2025-09-17 09:50:46,640] 64 root - INFO - Training Logistic Regression...
+[2025-09-17 09:50:46,694] 74 root - INFO - Logistic Regression Accuracy: 0.8889
+[2025-09-17 09:50:46,704] 75 root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.81      0.90      0.85        48
+           1       0.92      0.92      0.92        48
+           2       0.95      0.85      0.90        48
+
+    accuracy                           0.89       144
+   macro avg       0.89      0.89      0.89       144
+weighted avg       0.89      0.89      0.89       144
+
+[2025-09-17 09:50:46,704] 80 root - INFO - Best Model: Random Forest with Accuracy: 0.9236
+[2025-09-17 09:50:46,839] 16 root - INFO - Object saved at: artifacts\models\random_forest.pkl
+[2025-09-17 09:50:46,853] 16 root - INFO - Object saved at: artifacts\models\xgb_model.pkl
+[2025-09-17 09:50:46,858] 16 root - INFO - Object saved at: artifacts\models\logistic_regression.pkl
+[2025-09-17 09:50:46,859] 86 root - INFO - All models saved successfully in artifacts/models

@@ -1,0 +1,8 @@
+[2025-09-17 10:49:06,137] 48 root - INFO - Prediction pipeline initialized successfully
+[2025-09-17 10:49:06,137] 74 root - INFO - Loading model: random_forest
+[2025-09-17 10:49:06,156] 25 root - INFO - Object loaded from: artifacts\preprocessors\preprocessor.pkl
+[2025-09-17 10:49:06,157] 79 root - INFO - \u2713 Preprocessor loaded successfully
+[2025-09-17 10:49:06,157] 25 root - INFO - Object loaded from: artifacts\preprocessors\label_encoder.pkl
+[2025-09-17 10:49:06,157] 84 root - INFO - \u2713 Label encoder loaded successfully
+[2025-09-17 10:49:06,419] 25 root - INFO - Object loaded from: artifacts\models\random_forest.pkl
+[2025-09-17 10:49:06,428] 90 root - INFO - \u2713 Model random_forest loaded successfully

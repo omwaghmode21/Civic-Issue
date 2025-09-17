@@ -1,0 +1,481 @@
+short_description,category,location,admin_priority
+Complaint: road condition unsafe in school,road,school,High
+Complaint: can be checked water supply problem in hospital,water,hospital,Low
+"Broken bench found in park at highway, not severe",park,highway,Low
+"Park is dirty near residential, problematic",park,residential,Medium
+Complaint: garbage issue creating disturbance at hospital,garbage,hospital,Low
+Water leakage near hospital should be fixed soon,water,hospital,Medium
+"Voltage fluctuation issue in other, causing issues",electricity,other,Medium
+"Broken road reported near school, low priority",road,school,Low
+"Overgrown grass in park at school, critical",park,school,High
+"Sanitation issue at other, minor",sanitation,other,Low
+"Complaint: poor maintenance in park near highway, immediate",park,highway,High
+"Darkness due to streetlight outage in school, causing issues",streetlight,school,Medium
+"Broken bench found in park at hospital, not severe",park,hospital,Low
+"Complaint: streetlight fault at residential, needs attention",streetlight,residential,Medium
+Complaint: garbage issue creating disturbance at school,garbage,school,High
+"Park is dirty near other, dangerous",park,other,High
+"Highway damage issue near highway, dangerous",road,highway,High
+"Park is dirty near school, small",park,school,Low
+"Complaint: poor maintenance in park near market, critical",park,market,High
+"Broken road reported near school, problematic",road,school,Medium
+"Garbage pileup near residential, causing issues",garbage,residential,Medium
+"Darkness due to streetlight outage in market, small",streetlight,market,Low
+"Park is dirty near school, serious",park,school,High
+Complaint: road condition unsafe in other,road,other,Medium
+"Unsafe due to broken streetlight in hospital, immediate",streetlight,hospital,High
+Urgent repair needed: electricity issue at school,electricity,school,Low
+"Uncollected garbage near residential, minor",garbage,residential,Low
+"Unsafe due to broken streetlight in other, small",streetlight,other,Low
+Complaint: garbage issue creating disturbance at other,garbage,other,Medium
+"Broken bench found in park at highway, critical",park,highway,High
+"Complaint: streetlight fault at highway, not severe",streetlight,highway,Low
+"Complaint: poor maintenance in park near school, dangerous",park,school,High
+"Power outage at other, low priority",electricity,other,Low
+"Minor sanitation issue noticed in residential, small",sanitation,residential,Low
+"Minor sanitation issue noticed in highway, low priority",sanitation,highway,Low
+"Highway damage issue near residential, urgent",road,residential,High
+Water leakage near residential should be fixed soon,water,residential,Medium
+"Darkness due to streetlight outage in residential, needs attention",streetlight,residential,Medium
+"Highway damage issue near residential, can be checked",road,residential,Low
+"Voltage fluctuation issue in hospital, critical",electricity,hospital,High
+"Minor sanitation issue noticed in other, low priority",sanitation,other,Low
+"Unsafe due to broken streetlight in market, causing issues",streetlight,market,Medium
+"Complaint: streetlight fault at school, dangerous",streetlight,school,High
+Complaint: problematic water supply problem in highway,water,highway,Medium
+"Complaint: streetlight fault at other, dangerous",streetlight,other,High
+"Overgrown grass in park at residential, small",park,residential,Low
+"Electricity problem reported in hospital, minor",electricity,hospital,Low
+"Complaint: dirty surroundings near highway, immediate",sanitation,highway,High
+"Broken road reported near residential, serious",road,residential,High
+"Major accident on road near hospital due to potholes, urgent",road,hospital,High
+"Complaint: streetlight fault at residential, minor",streetlight,residential,Low
+"Drainage overflow issue in highway, low priority",water,highway,Low
+"Power outage at market, can be checked",electricity,market,Low
+"Unhygienic condition reported at hospital, not severe",sanitation,hospital,Low
+"Streetlight not working in school, causing issues",streetlight,school,Medium
+"Broken bench found in park at market, needs attention",park,market,Medium
+"Electricity problem reported in other, critical",electricity,other,High
+"Highway damage issue near highway, urgent",road,highway,High
+Critical water fault reported at highway,water,highway,Low
+"Unsafe due to broken streetlight in highway, urgent",streetlight,highway,High
+"Overgrown grass in park at hospital, minor",park,hospital,Low
+"Drainage overflow issue in other, problematic",water,other,Medium
+"Overgrown grass in park at residential, serious",park,residential,High
+"Broken bench found in park at other, serious",park,other,High
+"Complaint: poor maintenance in park near school, problematic",park,school,Medium
+"Park is dirty near highway, needs attention",park,highway,Medium
+Complaint: road condition unsafe in highway,road,highway,Low
+"Park is dirty near other, immediate",park,other,High
+Complaint: garbage issue creating disturbance at other,garbage,other,High
+"Park is dirty near other, problematic",park,other,Medium
+"Highway damage issue near market, needs attention",road,market,Medium
+Water leakage near other dangerous,water,other,High
+"Garbage pileup near residential, should be fixed soon",garbage,residential,Medium
+Complaint: road condition unsafe in hospital,road,hospital,High
+"Power outage at market, serious",electricity,market,High
+"Overflowing dustbins found in residential, needs attention",garbage,residential,Medium
+"Complaint: poor maintenance in park near residential, needs attention",park,residential,Medium
+"Darkness due to streetlight outage in residential, low priority",streetlight,residential,Low
+"Minor sanitation issue noticed in residential, small",sanitation,residential,Low
+"Uncollected garbage near hospital, urgent",garbage,hospital,High
+"Unsafe due to broken streetlight in residential, not severe",streetlight,residential,Low
+"Drainage overflow issue in market, critical",water,market,High
+Water leakage near school dangerous,water,school,High
+"Minor sanitation issue noticed in residential, minor",sanitation,residential,Low
+"Minor sanitation issue noticed in school, critical",sanitation,school,High
+"Broken road reported near highway, problematic",road,highway,Medium
+"Streetlight not working in highway, small",streetlight,highway,Low
+"Streetlight not working in school, dangerous",streetlight,school,High
+"Voltage fluctuation issue in school, small",electricity,school,Low
+"Electricity problem reported in other, should be fixed soon",electricity,other,Medium
+"Unsafe due to broken streetlight in market, not severe",streetlight,market,Low
+"Overgrown grass in park at hospital, problematic",park,hospital,Medium
+"Broken road reported near school, should be fixed soon",road,school,Medium
+"Complaint: dirty surroundings near school, low priority",sanitation,school,Low
+"Garbage pileup near residential, serious",garbage,residential,High
+"Minor sanitation issue noticed in school, minor",sanitation,school,Low
+"Darkness due to streetlight outage in school, serious",streetlight,school,High
+"Unsafe due to broken streetlight in residential, needs attention",streetlight,residential,Medium
+"Park is dirty near school, minor",park,school,Low
+"Complaint: dirty surroundings near hospital, serious",sanitation,hospital,High
+"Complaint: poor maintenance in park near other, small",park,other,Low
+"Overflowing dustbins found in school, not severe",garbage,school,Low
+Complaint: road condition unsafe in school,road,school,High
+"Overflowing dustbins found in highway, can be checked",garbage,highway,Low
+"Broken bench found in park at highway, problematic",park,highway,Medium
+"Uncollected garbage near residential, should be fixed soon",garbage,residential,Medium
+"Overflowing dustbins found in residential, low priority",garbage,residential,Low
+"Overflowing dustbins found in school, urgent",garbage,school,High
+"Sanitation issue at market, can be checked",sanitation,market,Low
+"Voltage fluctuation issue in other, critical",electricity,other,High
+"Darkness due to streetlight outage in residential, serious",streetlight,residential,High
+"Streetlight not working in other, minor",streetlight,other,Low
+"Broken bench found in park at school, critical",park,school,High
+"Minor sanitation issue noticed in hospital, can be checked",sanitation,hospital,Low
+"Unhygienic condition reported at market, minor",sanitation,market,Low
+Water leakage near residential serious,water,residential,High
+"Minor sanitation issue noticed in school, needs attention",sanitation,school,Medium
+"Minor sanitation issue noticed in hospital, causing issues",sanitation,hospital,Medium
+"Broken bench found in park at market, small",park,market,Low
+"Broken road reported near highway, critical",road,highway,High
+"Complaint: dirty surroundings near market, immediate",sanitation,market,High
+"Major accident on road near highway due to potholes, dangerous",road,highway,High
+"Unhygienic condition reported at other, low priority",sanitation,other,Low
+"Garbage pileup near hospital, serious",garbage,hospital,High
+"Electricity problem reported in residential, urgent",electricity,residential,High
+Complaint: road condition unsafe in residential,road,residential,High
+Complaint: garbage issue creating disturbance at other,garbage,other,High
+"Broken road reported near hospital, small",road,hospital,Low
+"Highway damage issue near other, can be checked",road,other,Low
+"Unhygienic condition reported at school, can be checked",sanitation,school,Low
+"Uncollected garbage near residential, critical",garbage,residential,High
+"Overflowing dustbins found in residential, not severe",garbage,residential,Low
+"Electricity problem reported in residential, causing issues",electricity,residential,Medium
+"Power outage at other, immediate",electricity,other,High
+"Complaint: streetlight fault at other, causing issues",streetlight,other,Medium
+"Highway damage issue near other, should be fixed soon",road,other,Medium
+"Broken bench found in park at highway, not severe",park,highway,Low
+"Overflowing dustbins found in market, urgent",garbage,market,High
+"Highway damage issue near residential, serious",road,residential,High
+Complaint: critical water supply problem in residential,water,residential,High
+"Electricity problem reported in other, serious",electricity,other,High
+"Major accident on road near school due to potholes, can be checked",road,school,Low
+"Drainage overflow issue in hospital, low priority",water,hospital,Low
+"Sanitation issue at other, urgent",sanitation,other,High
+"Uncollected garbage near market, minor",garbage,market,Low
+Urgent repair needed: electricity issue at residential,electricity,residential,High
+"Highway damage issue near other, immediate",road,other,High
+"Uncollected garbage near hospital, causing issues",garbage,hospital,Medium
+"Streetlight not working in school, problematic",streetlight,school,Medium
+"Complaint: dirty surroundings near school, urgent",sanitation,school,High
+"Unhygienic condition reported at highway, causing issues",sanitation,highway,Medium
+"Power outage at residential, needs attention",electricity,residential,Medium
+"Broken bench found in park at hospital, critical",park,hospital,High
+"Streetlight not working in residential, serious",streetlight,residential,High
+Complaint: road condition unsafe in market,road,market,Low
+"Major accident on road near highway due to potholes, urgent",road,highway,High
+Complaint: critical water supply problem in other,water,other,High
+"Drainage overflow issue in residential, critical",water,residential,High
+"Drainage overflow issue in highway, low priority",water,highway,Low
+Complaint: garbage issue creating disturbance at market,garbage,market,High
+"Overgrown grass in park at highway, serious",park,highway,High
+"Overflowing dustbins found in other, causing issues",garbage,other,Medium
+"Drainage overflow issue in hospital, not severe",water,hospital,Low
+"Power outage at highway, critical",electricity,highway,High
+"Garbage pileup near school, small",garbage,school,Low
+"Unsafe due to broken streetlight in market, low priority",streetlight,market,Low
+"Minor sanitation issue noticed in hospital, should be fixed soon",sanitation,hospital,Medium
+"Overgrown grass in park at hospital, problematic",park,hospital,Medium
+Complaint: road condition unsafe in residential,road,residential,Medium
+Complaint: minor water supply problem in school,water,school,Low
+Complaint: road condition unsafe in other,road,other,High
+"Darkness due to streetlight outage in highway, small",streetlight,highway,Low
+Complaint: garbage issue creating disturbance at residential,garbage,residential,High
+"Complaint: poor maintenance in park near other, needs attention",park,other,Medium
+"Complaint: poor maintenance in park near residential, causing issues",park,residential,Medium
+"Voltage fluctuation issue in highway, can be checked",electricity,highway,Low
+"Streetlight not working in highway, causing issues",streetlight,highway,Medium
+"Complaint: poor maintenance in park near other, should be fixed soon",park,other,Medium
+"Park is dirty near hospital, urgent",park,hospital,High
+"Overflowing dustbins found in school, causing issues",garbage,school,Medium
+Water leakage near school urgent,water,school,High
+"Broken road reported near market, causing issues",road,market,Medium
+"Darkness due to streetlight outage in other, serious",streetlight,other,High
+"Darkness due to streetlight outage in other, low priority",streetlight,other,Low
+"Complaint: dirty surroundings near hospital, small",sanitation,hospital,Low
+"Park is dirty near market, serious",park,market,High
+"Unhygienic condition reported at hospital, can be checked",sanitation,hospital,Low
+"Uncollected garbage near other, needs attention",garbage,other,Medium
+"Complaint: streetlight fault at residential, minor",streetlight,residential,Low
+"Garbage pileup near market, causing issues",garbage,market,Medium
+"Complaint: streetlight fault at school, serious",streetlight,school,High
+"Garbage pileup near school, needs attention",garbage,school,Medium
+"Minor sanitation issue noticed in highway, small",sanitation,highway,Low
+Critical water fault reported at highway,water,highway,Medium
+"Complaint: streetlight fault at market, dangerous",streetlight,market,High
+"Power outage at hospital, should be fixed soon",electricity,hospital,Medium
+"Electricity problem reported in highway, minor",electricity,highway,Low
+"Power outage at highway, can be checked",electricity,highway,Low
+"Electricity problem reported in market, low priority",electricity,market,Low
+"Highway damage issue near residential, problematic",road,residential,Medium
+"Major accident on road near market due to potholes, small",road,market,Low
+"Major accident on road near hospital due to potholes, can be checked",road,hospital,Low
+"Overgrown grass in park at other, low priority",park,other,Low
+"Electricity problem reported in highway, not severe",electricity,highway,Low
+"Complaint: streetlight fault at school, dangerous",streetlight,school,High
+"Streetlight not working in hospital, problematic",streetlight,hospital,Medium
+Urgent repair needed: electricity issue at hospital,electricity,hospital,High
+"Uncollected garbage near highway, minor",garbage,highway,Low
+"Electricity problem reported in hospital, problematic",electricity,hospital,Medium
+"Power outage at other, causing issues",electricity,other,Medium
+Urgent repair needed: electricity issue at hospital,electricity,hospital,Medium
+Complaint: garbage issue creating disturbance at highway,garbage,highway,High
+"Uncollected garbage near school, critical",garbage,school,High
+Complaint: causing issues water supply problem in market,water,market,Medium
+"Electricity problem reported in market, can be checked",electricity,market,Low
+"Unsafe due to broken streetlight in residential, dangerous",streetlight,residential,High
+"Uncollected garbage near highway, minor",garbage,highway,Low
+"Drainage overflow issue in hospital, minor",water,hospital,Low
+"Complaint: dirty surroundings near other, dangerous",sanitation,other,High
+"Unsafe due to broken streetlight in school, critical",streetlight,school,High
+Critical water fault reported at residential,water,residential,Medium
+Complaint: garbage issue creating disturbance at other,garbage,other,Low
+Critical water fault reported at other,water,other,Medium
+"Overgrown grass in park at other, causing issues",park,other,Medium
+Complaint: garbage issue creating disturbance at hospital,garbage,hospital,High
+"Complaint: dirty surroundings near hospital, small",sanitation,hospital,Low
+Critical water fault reported at residential,water,residential,High
+"Streetlight not working in highway, urgent",streetlight,highway,High
+"Power outage at residential, serious",electricity,residential,High
+Urgent repair needed: electricity issue at residential,electricity,residential,Low
+"Highway damage issue near highway, problematic",road,highway,Medium
+"Complaint: dirty surroundings near market, small",sanitation,market,Low
+"Overgrown grass in park at residential, needs attention",park,residential,Medium
+"Overgrown grass in park at market, needs attention",park,market,Medium
+Water leakage near school needs attention,water,school,Medium
+"Broken bench found in park at other, causing issues",park,other,Medium
+"Unhygienic condition reported at market, small",sanitation,market,Low
+"Broken road reported near residential, problematic",road,residential,Medium
+Complaint: urgent water supply problem in hospital,water,hospital,High
+Urgent repair needed: electricity issue at residential,electricity,residential,High
+Urgent repair needed: electricity issue at other,electricity,other,Medium
+Complaint: garbage issue creating disturbance at market,garbage,market,Medium
+"Voltage fluctuation issue in school, urgent",electricity,school,High
+"Broken bench found in park at market, dangerous",park,market,High
+"Sanitation issue at hospital, urgent",sanitation,hospital,High
+"Streetlight not working in highway, minor",streetlight,highway,Low
+"Complaint: poor maintenance in park near other, dangerous",park,other,High
+"Unsafe due to broken streetlight in school, small",streetlight,school,Low
+"Voltage fluctuation issue in hospital, serious",electricity,hospital,High
+"Major accident on road near market due to potholes, small",road,market,Low
+"Complaint: poor maintenance in park near residential, urgent",park,residential,High
+Complaint: road condition unsafe in hospital,road,hospital,High
+"Drainage overflow issue in other, should be fixed soon",water,other,Medium
+"Complaint: poor maintenance in park near school, can be checked",park,school,Low
+Complaint: road condition unsafe in market,road,market,Low
+Water leakage near other should be fixed soon,water,other,Medium
+"Unsafe due to broken streetlight in market, immediate",streetlight,market,High
+Complaint: minor water supply problem in school,water,school,Low
+"Unsafe due to broken streetlight in other, immediate",streetlight,other,High
+"Highway damage issue near highway, needs attention",road,highway,Medium
+"Uncollected garbage near hospital, causing issues",garbage,hospital,Medium
+"Drainage overflow issue in market, needs attention",water,market,Medium
+"Complaint: poor maintenance in park near market, should be fixed soon",park,market,Medium
+Urgent repair needed: electricity issue at highway,electricity,highway,Medium
+"Sanitation issue at school, low priority",sanitation,school,Low
+"Overflowing dustbins found in hospital, causing issues",garbage,hospital,Medium
+Critical water fault reported at hospital,water,hospital,Low
+"Complaint: dirty surroundings near residential, can be checked",sanitation,residential,Low
+"Uncollected garbage near residential, critical",garbage,residential,High
+"Voltage fluctuation issue in market, needs attention",electricity,market,Medium
+Water leakage near other causing issues,water,other,Medium
+"Electricity problem reported in school, not severe",electricity,school,Low
+"Overflowing dustbins found in other, causing issues",garbage,other,Medium
+Water leakage near market urgent,water,market,High
+"Garbage pileup near highway, minor",garbage,highway,Low
+"Unsafe due to broken streetlight in school, should be fixed soon",streetlight,school,Medium
+"Complaint: poor maintenance in park near highway, needs attention",park,highway,Medium
+"Drainage overflow issue in other, minor",water,other,Low
+"Unhygienic condition reported at hospital, causing issues",sanitation,hospital,Medium
+"Complaint: streetlight fault at school, can be checked",streetlight,school,Low
+Complaint: garbage issue creating disturbance at residential,garbage,residential,Low
+"Park is dirty near highway, minor",park,highway,Low
+"Streetlight not working in highway, can be checked",streetlight,highway,Low
+"Complaint: streetlight fault at hospital, serious",streetlight,hospital,High
+Water leakage near residential needs attention,water,residential,Medium
+"Complaint: poor maintenance in park near market, causing issues",park,market,Medium
+"Overgrown grass in park at residential, not severe",park,residential,Low
+"Streetlight not working in school, problematic",streetlight,school,Medium
+"Overflowing dustbins found in hospital, not severe",garbage,hospital,Low
+"Drainage overflow issue in highway, small",water,highway,Low
+"Complaint: streetlight fault at hospital, problematic",streetlight,hospital,Medium
+"Unsafe due to broken streetlight in hospital, minor",streetlight,hospital,Low
+"Park is dirty near other, causing issues",park,other,Medium
+"Minor sanitation issue noticed in other, dangerous",sanitation,other,High
+"Broken road reported near market, should be fixed soon",road,market,Medium
+"Unsafe due to broken streetlight in residential, problematic",streetlight,residential,Medium
+"Sanitation issue at hospital, should be fixed soon",sanitation,hospital,Medium
+Complaint: garbage issue creating disturbance at other,garbage,other,High
+Urgent repair needed: electricity issue at other,electricity,other,High
+"Major accident on road near market due to potholes, low priority",road,market,Low
+"Unsafe due to broken streetlight in hospital, needs attention",streetlight,hospital,Medium
+"Unsafe due to broken streetlight in school, minor",streetlight,school,Low
+"Broken road reported near market, not severe",road,market,Low
+"Minor sanitation issue noticed in school, critical",sanitation,school,High
+"Overgrown grass in park at school, causing issues",park,school,Medium
+"Streetlight not working in residential, low priority",streetlight,residential,Low
+"Highway damage issue near other, urgent",road,other,High
+"Power outage at school, can be checked",electricity,school,Low
+Water leakage near other needs attention,water,other,Medium
+Complaint: critical water supply problem in school,water,school,High
+Complaint: garbage issue creating disturbance at residential,garbage,residential,Low
+"Broken bench found in park at school, urgent",park,school,High
+Critical water fault reported at hospital,water,hospital,Low
+"Unsafe due to broken streetlight in market, urgent",streetlight,market,High
+"Complaint: poor maintenance in park near residential, needs attention",park,residential,Medium
+"Major accident on road near residential due to potholes, urgent",road,residential,High
+"Park is dirty near other, should be fixed soon",park,other,Medium
+Complaint: road condition unsafe in hospital,road,hospital,Medium
+"Complaint: streetlight fault at school, immediate",streetlight,school,High
+"Darkness due to streetlight outage in school, dangerous",streetlight,school,High
+"Complaint: dirty surroundings near hospital, serious",sanitation,hospital,High
+"Uncollected garbage near residential, urgent",garbage,residential,High
+"Overflowing dustbins found in market, causing issues",garbage,market,Medium
+"Overflowing dustbins found in market, serious",garbage,market,High
+"Park is dirty near residential, not severe",park,residential,Low
+"Darkness due to streetlight outage in hospital, not severe",streetlight,hospital,Low
+"Complaint: poor maintenance in park near highway, should be fixed soon",park,highway,Medium
+"Complaint: dirty surroundings near market, serious",sanitation,market,High
+Complaint: garbage issue creating disturbance at residential,garbage,residential,High
+"Garbage pileup near market, needs attention",garbage,market,Medium
+"Highway damage issue near highway, not severe",road,highway,Low
+"Major accident on road near school due to potholes, low priority",road,school,Low
+Water leakage near highway needs attention,water,highway,Medium
+"Darkness due to streetlight outage in residential, urgent",streetlight,residential,High
+"Uncollected garbage near highway, low priority",garbage,highway,Low
+"Highway damage issue near market, should be fixed soon",road,market,Medium
+"Overflowing dustbins found in hospital, causing issues",garbage,hospital,Medium
+Complaint: road condition unsafe in residential,road,residential,Medium
+"Streetlight not working in school, low priority",streetlight,school,Low
+"Unsafe due to broken streetlight in hospital, critical",streetlight,hospital,High
+"Darkness due to streetlight outage in other, needs attention",streetlight,other,Medium
+"Unhygienic condition reported at hospital, can be checked",sanitation,hospital,Low
+Water leakage near market dangerous,water,market,High
+"Minor sanitation issue noticed in residential, causing issues",sanitation,residential,Medium
+"Unsafe due to broken streetlight in school, not severe",streetlight,school,Low
+Complaint: road condition unsafe in hospital,road,hospital,Medium
+"Major accident on road near school due to potholes, problematic",road,school,Medium
+Critical water fault reported at residential,water,residential,High
+"Park is dirty near school, causing issues",park,school,Medium
+"Complaint: poor maintenance in park near other, should be fixed soon",park,other,Medium
+"Unhygienic condition reported at other, serious",sanitation,other,High
+"Drainage overflow issue in highway, serious",water,highway,High
+"Park is dirty near other, serious",park,other,High
+"Unsafe due to broken streetlight in market, causing issues",streetlight,market,Medium
+"Complaint: dirty surroundings near hospital, small",sanitation,hospital,Low
+"Drainage overflow issue in school, causing issues",water,school,Medium
+Critical water fault reported at hospital,water,hospital,Low
+Complaint: urgent water supply problem in residential,water,residential,High
+"Complaint: streetlight fault at hospital, small",streetlight,hospital,Low
+"Electricity problem reported in hospital, problematic",electricity,hospital,Medium
+"Broken bench found in park at highway, needs attention",park,highway,Medium
+"Broken road reported near school, should be fixed soon",road,school,Medium
+"Streetlight not working in market, problematic",streetlight,market,Medium
+"Broken road reported near school, can be checked",road,school,Low
+"Power outage at residential, critical",electricity,residential,High
+Water leakage near other urgent,water,other,High
+"Overgrown grass in park at market, urgent",park,market,High
+"Unsafe due to broken streetlight in hospital, urgent",streetlight,hospital,High
+"Complaint: streetlight fault at other, small",streetlight,other,Low
+"Sanitation issue at residential, urgent",sanitation,residential,High
+"Electricity problem reported in highway, not severe",electricity,highway,Low
+"Broken bench found in park at residential, minor",park,residential,Low
+Water leakage near highway serious,water,highway,High
+"Uncollected garbage near residential, needs attention",garbage,residential,Medium
+"Complaint: streetlight fault at other, dangerous",streetlight,other,High
+Urgent repair needed: electricity issue at other,electricity,other,High
+"Overflowing dustbins found in other, dangerous",garbage,other,High
+Urgent repair needed: electricity issue at highway,electricity,highway,Low
+"Broken bench found in park at residential, low priority",park,residential,Low
+"Major accident on road near other due to potholes, causing issues",road,other,Medium
+Urgent repair needed: electricity issue at market,electricity,market,Medium
+"Unsafe due to broken streetlight in hospital, minor",streetlight,hospital,Low
+"Darkness due to streetlight outage in market, low priority",streetlight,market,Low
+"Minor sanitation issue noticed in hospital, low priority",sanitation,hospital,Low
+"Broken bench found in park at highway, should be fixed soon",park,highway,Medium
+"Voltage fluctuation issue in market, needs attention",electricity,market,Medium
+"Unsafe due to broken streetlight in other, causing issues",streetlight,other,Medium
+Water leakage near hospital causing issues,water,hospital,Medium
+"Unhygienic condition reported at other, minor",sanitation,other,Low
+Complaint: garbage issue creating disturbance at hospital,garbage,hospital,Medium
+"Broken bench found in park at school, not severe",park,school,Low
+"Minor sanitation issue noticed in residential, small",sanitation,residential,Low
+Urgent repair needed: electricity issue at highway,electricity,highway,Medium
+Complaint: minor water supply problem in market,water,market,Low
+"Garbage pileup near other, causing issues",garbage,other,Medium
+"Complaint: poor maintenance in park near school, should be fixed soon",park,school,Medium
+"Park is dirty near market, should be fixed soon",park,market,Medium
+"Major accident on road near market due to potholes, serious",road,market,High
+"Broken bench found in park at residential, should be fixed soon",park,residential,Medium
+"Complaint: poor maintenance in park near residential, problematic",park,residential,Medium
+"Unsafe due to broken streetlight in market, should be fixed soon",streetlight,market,Medium
+"Park is dirty near other, needs attention",park,other,Medium
+"Darkness due to streetlight outage in hospital, serious",streetlight,hospital,High
+Critical water fault reported at other,water,other,High
+"Broken bench found in park at market, small",park,market,Low
+"Voltage fluctuation issue in hospital, urgent",electricity,hospital,High
+"Highway damage issue near residential, minor",road,residential,Low
+"Highway damage issue near residential, can be checked",road,residential,Low
+"Complaint: streetlight fault at other, serious",streetlight,other,High
+Water leakage near highway immediate,water,highway,High
+"Garbage pileup near other, needs attention",garbage,other,Medium
+"Unsafe due to broken streetlight in school, critical",streetlight,school,High
+Complaint: road condition unsafe in residential,road,residential,Medium
+"Minor sanitation issue noticed in other, low priority",sanitation,other,Low
+"Voltage fluctuation issue in market, immediate",electricity,market,High
+"Unhygienic condition reported at other, small",sanitation,other,Low
+"Major accident on road near other due to potholes, can be checked",road,other,Low
+"Complaint: poor maintenance in park near market, urgent",park,market,High
+"Broken bench found in park at school, not severe",park,school,Low
+"Uncollected garbage near school, causing issues",garbage,school,Medium
+"Broken bench found in park at other, needs attention",park,other,Medium
+"Complaint: poor maintenance in park near highway, immediate",park,highway,High
+"Sanitation issue at other, needs attention",sanitation,other,Medium
+Critical water fault reported at other,water,other,High
+Urgent repair needed: electricity issue at residential,electricity,residential,Low
+"Drainage overflow issue in hospital, needs attention",water,hospital,Medium
+"Overflowing dustbins found in highway, causing issues",garbage,highway,Medium
+"Darkness due to streetlight outage in school, small",streetlight,school,Low
+"Park is dirty near hospital, not severe",park,hospital,Low
+"Unhygienic condition reported at residential, critical",sanitation,residential,High
+"Complaint: dirty surroundings near market, causing issues",sanitation,market,Medium
+"Unhygienic condition reported at school, low priority",sanitation,school,Low
+Urgent repair needed: electricity issue at hospital,electricity,hospital,Medium
+"Darkness due to streetlight outage in market, should be fixed soon",streetlight,market,Medium
+Urgent repair needed: electricity issue at market,electricity,market,High
+Critical water fault reported at school,water,school,Low
+"Broken bench found in park at other, dangerous",park,other,High
+"Electricity problem reported in market, needs attention",electricity,market,Medium
+"Unsafe due to broken streetlight in residential, should be fixed soon",streetlight,residential,Medium
+"Complaint: streetlight fault at school, low priority",streetlight,school,Low
+Complaint: garbage issue creating disturbance at residential,garbage,residential,Medium
+"Darkness due to streetlight outage in school, needs attention",streetlight,school,Medium
+"Highway damage issue near market, urgent",road,market,High
+"Highway damage issue near market, immediate",road,market,High
+"Drainage overflow issue in residential, can be checked",water,residential,Low
+"Highway damage issue near highway, problematic",road,highway,Medium
+"Minor sanitation issue noticed in market, should be fixed soon",sanitation,market,Medium
+Urgent repair needed: electricity issue at school,electricity,school,High
+"Complaint: poor maintenance in park near school, causing issues",park,school,Medium
+"Overgrown grass in park at residential, needs attention",park,residential,Medium
+"Broken road reported near residential, needs attention",road,residential,Medium
+"Drainage overflow issue in other, not severe",water,other,Low
+"Highway damage issue near highway, needs attention",road,highway,Medium
+"Streetlight not working in market, low priority",streetlight,market,Low
+"Garbage pileup near school, problematic",garbage,school,Medium
+"Overflowing dustbins found in other, not severe",garbage,other,Low
+"Park is dirty near market, can be checked",park,market,Low
+"Minor sanitation issue noticed in residential, needs attention",sanitation,residential,Medium
+Urgent repair needed: electricity issue at other,electricity,other,Medium
+"Complaint: poor maintenance in park near school, dangerous",park,school,High
+"Unhygienic condition reported at school, dangerous",sanitation,school,High
+Complaint: road condition unsafe in residential,road,residential,High
+"Voltage fluctuation issue in hospital, small",electricity,hospital,Low
+"Complaint: streetlight fault at residential, urgent",streetlight,residential,High
+"Electricity problem reported in school, small",electricity,school,Low
+"Unsafe due to broken streetlight in other, immediate",streetlight,other,High
+"Garbage pileup near other, can be checked",garbage,other,Low
+Critical water fault reported at other,water,other,Low
+Water leakage near other causing issues,water,other,Medium
+"Park is dirty near market, minor",park,market,Low
+Critical water fault reported at hospital,water,hospital,High
+"Broken road reported near hospital, small",road,hospital,Low
+Water leakage near school immediate,water,school,High
+"Garbage pileup near school, problematic",garbage,school,Medium
+"Electricity problem reported in highway, dangerous",electricity,highway,High
+"Complaint: poor maintenance in park near other, serious",park,other,High
+Critical water fault reported at highway,water,highway,Medium
+"Streetlight not working in other, not severe",streetlight,other,Low
+"Complaint: poor maintenance in park near hospital, small",park,hospital,Low
+"Voltage fluctuation issue in highway, critical",electricity,highway,High

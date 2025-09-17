@@ -1,0 +1,7 @@
+[2025-09-17 09:43:41,444] 34 root - INFO - Entered Data Ingestion component
+[2025-09-17 09:43:41,497] 38 root - INFO - Dataset read successfully from notebooks\data\raw\Dummy_DataSet.csv. Shape: (480, 4)
+[2025-09-17 09:43:41,553] 45 root - INFO - Raw dataset saved at artifacts\priority_raw.csv
+[2025-09-17 09:43:41,554] 48 root - INFO - Splitting dataset into train and test sets
+[2025-09-17 09:43:41,615] 54 root - INFO - Train dataset saved at artifacts\priority_train.csv
+[2025-09-17 09:43:41,615] 55 root - INFO - Test dataset saved at artifacts\priority_test.csv
+[2025-09-17 09:43:41,615] 56 root - INFO - Data ingestion completed successfully

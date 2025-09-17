@@ -1,0 +1,10 @@
+[2025-09-17 10:48:49,358] 48 root - INFO - Prediction pipeline initialized successfully
+[2025-09-17 10:48:49,358] 74 root - INFO - Loading model: random_forest
+[2025-09-17 10:48:49,387] 25 root - INFO - Object loaded from: artifacts\preprocessors\preprocessor.pkl
+[2025-09-17 10:48:49,387] 79 root - INFO - \u2713 Preprocessor loaded successfully
+[2025-09-17 10:48:49,388] 25 root - INFO - Object loaded from: artifacts\preprocessors\label_encoder.pkl
+[2025-09-17 10:48:49,388] 84 root - INFO - \u2713 Label encoder loaded successfully
+[2025-09-17 10:48:49,659] 25 root - INFO - Object loaded from: artifacts\models\random_forest.pkl
+[2025-09-17 10:48:49,669] 90 root - INFO - \u2713 Model random_forest loaded successfully
+[2025-09-17 10:48:49,721] 162 root - INFO - Prediction completed: 0 (confidence: 0.635)
+[2025-09-17 10:48:49,770] 231 root - INFO - Batch prediction completed for 2 items

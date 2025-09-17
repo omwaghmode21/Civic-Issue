@@ -1,0 +1,4 @@
+[2025-09-17 17:44:33,518] 25 root - INFO - Object loaded from: artifacts\models\random_forest.pkl
+[2025-09-17 17:44:33,519] 82 root - INFO - \u2713 Model loaded: random_forest
+[2025-09-17 17:44:33,520] 25 root - INFO - Object loaded from: artifacts\preprocessors\label_encoder.pkl
+[2025-09-17 17:44:33,520] 89 root - INFO - \u2713 Label encoder loaded

@@ -1,0 +1,95 @@
+[2025-09-17 18:40:01,547] 53 root - INFO - Training pipeline initialized successfully
+[2025-09-17 18:40:01,547] 63 root - INFO - ==================================================
+[2025-09-17 18:40:01,548] 64 root - INFO - STARTING TRAINING PIPELINE
+[2025-09-17 18:40:01,548] 65 root - INFO - ==================================================
+[2025-09-17 18:40:01,548] 68 root - INFO - Step 1: Data Ingestion
+[2025-09-17 18:40:01,548] 34 root - INFO - Entered Data Ingestion component
+[2025-09-17 18:40:01,570] 38 root - INFO - Dataset read successfully from notebooks\data\raw\Dummy_DataSet.csv. Shape: (480, 4)
+[2025-09-17 18:40:01,578] 45 root - INFO - Raw dataset saved at artifacts\priority_raw.csv
+[2025-09-17 18:40:01,578] 48 root - INFO - Splitting dataset into train and test sets
+[2025-09-17 18:40:01,605] 54 root - INFO - Train dataset saved at artifacts\priority_train.csv
+[2025-09-17 18:40:01,605] 55 root - INFO - Test dataset saved at artifacts\priority_test.csv
+[2025-09-17 18:40:01,605] 56 root - INFO - Data ingestion completed successfully
+[2025-09-17 18:40:01,606] 70 root - INFO - \u2713 Data ingestion completed. Train: artifacts\priority_train.csv, Test: artifacts\priority_test.csv
+[2025-09-17 18:40:01,609] 73 root - INFO - Step 2: Data Validation
+[2025-09-17 18:40:01,609] 73 root - INFO - Starting data validation process
+[2025-09-17 18:40:01,613] 76 root - INFO - Dataset loaded successfully from artifacts\priority_raw.csv
+[2025-09-17 18:40:01,613] 25 root - INFO - Validating dataset columns
+[2025-09-17 18:40:01,613] 29 root - INFO - All expected columns are present
+[2025-09-17 18:40:01,613] 35 root - INFO - Checking for missing values
+[2025-09-17 18:40:01,614] 43 root - INFO - No missing values found
+[2025-09-17 18:40:01,614] 50 root - INFO - Checking for duplicate rows
+[2025-09-17 18:40:01,623] 53 root - WARNING - 65 duplicate rows detected. Dropping duplicates.
+[2025-09-17 18:40:01,625] 63 root - INFO - Validating admin_priority labels
+[2025-09-17 18:40:01,627] 67 root - INFO - All priority labels are valid
+[2025-09-17 18:40:01,627] 84 root - INFO - Data validation completed successfully
+[2025-09-17 18:40:01,627] 76 root - INFO - \u2713 Data validation completed. Shape: (415, 4)
+[2025-09-17 18:40:01,627] 79 root - INFO - Step 3: Data Transformation
+[2025-09-17 18:40:01,627] 54 root - INFO - Starting data transformation
+[2025-09-17 18:40:01,630] 31 root - INFO - Creating ColumnTransformer for preprocessing
+[2025-09-17 18:40:01,630] 42 root - INFO - Preprocessor created successfully
+[2025-09-17 18:40:01,653] 71 root - INFO - Data transformation completed successfully
+[2025-09-17 18:40:01,654] 81 root - INFO - \u2713 Data transformation completed. Features: (415, 82), Labels: (415,)
+[2025-09-17 18:40:01,654] 84 root - INFO - Step 4: Preparing train-test split for model training
+[2025-09-17 18:40:01,666] 103 root - INFO - \u2713 Train-test split prepared. Train: (384, 3), Test: (96, 3)
+[2025-09-17 18:40:01,666] 106 root - INFO - Step 5: Model Training
+[2025-09-17 18:40:01,666] 40 root - INFO - Starting model training...
+[2025-09-17 18:40:01,666] 64 root - INFO - Training Random Forest...
+[2025-09-17 18:40:02,114] 74 root - INFO - Random Forest Accuracy: 0.9062
+[2025-09-17 18:40:02,123] 75 root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.85      0.91      0.88        32
+           1       0.91      0.97      0.94        32
+           2       0.96      0.84      0.90        32
+
+    accuracy                           0.91        96
+   macro avg       0.91      0.91      0.91        96
+weighted avg       0.91      0.91      0.91        96
+
+[2025-09-17 18:40:02,123] 64 root - INFO - Training XGBoost...
+[2025-09-17 18:40:02,331] 74 root - INFO - XGBoost Accuracy: 0.8854
+[2025-09-17 18:40:02,339] 75 root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.82      0.88      0.85        32
+           1       0.94      0.94      0.94        32
+           2       0.90      0.84      0.87        32
+
+    accuracy                           0.89        96
+   macro avg       0.89      0.89      0.89        96
+weighted avg       0.89      0.89      0.89        96
+
+[2025-09-17 18:40:02,339] 64 root - INFO - Training Logistic Regression...
+[2025-09-17 18:40:02,384] 74 root - INFO - Logistic Regression Accuracy: 0.9062
+[2025-09-17 18:40:02,391] 75 root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.83      0.94      0.88        32
+           1       0.91      0.94      0.92        32
+           2       1.00      0.84      0.92        32
+
+    accuracy                           0.91        96
+   macro avg       0.91      0.91      0.91        96
+weighted avg       0.91      0.91      0.91        96
+
+[2025-09-17 18:40:02,391] 80 root - INFO - Best Model: Random Forest with Accuracy: 0.9062
+[2025-09-17 18:40:02,481] 16 root - INFO - Object saved at: artifacts\models\random_forest.pkl
+[2025-09-17 18:40:02,488] 16 root - INFO - Object saved at: artifacts\models\xgb_model.pkl
+[2025-09-17 18:40:02,491] 16 root - INFO - Object saved at: artifacts\models\logistic_regression.pkl
+[2025-09-17 18:40:02,491] 86 root - INFO - All models saved successfully in artifacts/models
+[2025-09-17 18:40:02,492] 110 root - INFO - \u2713 Model training completed. Best model: Random Forest
+[2025-09-17 18:40:02,492] 113 root - INFO - Step 6: Saving Preprocessors
+[2025-09-17 18:40:02,498] 87 root - INFO - Preprocessor saved to artifacts\preprocessors\preprocessor.pkl
+[2025-09-17 18:40:02,499] 101 root - INFO - Label encoder saved to artifacts\preprocessors\label_encoder.pkl
+[2025-09-17 18:40:02,499] 119 root - INFO - \u2713 Preprocessors saved successfully
+[2025-09-17 18:40:02,499] 122 root - INFO - Step 7: Saving Training Metadata
+[2025-09-17 18:40:02,500] 16 root - INFO - Object saved at: artifacts\training_metadata.pkl
+[2025-09-17 18:40:02,500] 136 root - INFO - \u2713 Training metadata saved to artifacts\training_metadata.pkl
+[2025-09-17 18:40:02,500] 139 root - INFO - ==================================================
+[2025-09-17 18:40:02,500] 140 root - INFO - TRAINING PIPELINE COMPLETED SUCCESSFULLY
+[2025-09-17 18:40:02,500] 141 root - INFO - ==================================================
+[2025-09-17 18:40:02,500] 142 root - INFO - Best Model: Random Forest
+[2025-09-17 18:40:02,500] 143 root - INFO - Best Accuracy: 0.9062
+[2025-09-17 18:40:02,500] 144 root - INFO - All Models: {'Random Forest': 0.90625, 'XGBoost': 0.8854166666666666, 'Logistic Regression': 0.90625}
+[2025-09-17 18:40:02,500] 145 root - INFO - Artifacts saved in: artifacts

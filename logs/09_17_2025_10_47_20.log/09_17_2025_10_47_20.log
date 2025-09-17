@@ -1,0 +1,44 @@
+[2025-09-17 10:47:25,839] 53 root - INFO - Training pipeline initialized successfully
+[2025-09-17 10:47:25,839] 63 root - INFO - ==================================================
+[2025-09-17 10:47:25,841] 64 root - INFO - STARTING TRAINING PIPELINE
+[2025-09-17 10:47:25,841] 65 root - INFO - ==================================================
+[2025-09-17 10:47:25,841] 68 root - INFO - Step 1: Data Ingestion
+[2025-09-17 10:47:25,841] 34 root - INFO - Entered Data Ingestion component
+[2025-09-17 10:47:25,872] 38 root - INFO - Dataset read successfully from notebooks\data\raw\Dummy_DataSet.csv. Shape: (480, 4)
+[2025-09-17 10:47:25,886] 45 root - INFO - Raw dataset saved at artifacts\priority_raw.csv
+[2025-09-17 10:47:25,887] 48 root - INFO - Splitting dataset into train and test sets
+[2025-09-17 10:47:25,907] 54 root - INFO - Train dataset saved at artifacts\priority_train.csv
+[2025-09-17 10:47:25,907] 55 root - INFO - Test dataset saved at artifacts\priority_test.csv
+[2025-09-17 10:47:25,907] 56 root - INFO - Data ingestion completed successfully
+[2025-09-17 10:47:25,908] 70 root - INFO - \u2713 Data ingestion completed. Train: artifacts\priority_train.csv, Test: artifacts\priority_test.csv
+[2025-09-17 10:47:25,908] 73 root - INFO - Step 2: Data Validation
+[2025-09-17 10:47:25,908] 73 root - INFO - Starting data validation process
+[2025-09-17 10:47:25,911] 76 root - INFO - Dataset loaded successfully from artifacts\priority_raw.csv
+[2025-09-17 10:47:25,911] 25 root - INFO - Validating dataset columns
+[2025-09-17 10:47:25,911] 29 root - INFO - All expected columns are present
+[2025-09-17 10:47:25,911] 35 root - INFO - Checking for missing values
+[2025-09-17 10:47:25,911] 43 root - INFO - No missing values found
+[2025-09-17 10:47:25,911] 50 root - INFO - Checking for duplicate rows
+[2025-09-17 10:47:25,922] 53 root - WARNING - 65 duplicate rows detected. Dropping duplicates.
+[2025-09-17 10:47:25,923] 63 root - INFO - Validating admin_priority labels
+[2025-09-17 10:47:25,925] 67 root - INFO - All priority labels are valid
+[2025-09-17 10:47:25,925] 84 root - INFO - Data validation completed successfully
+[2025-09-17 10:47:25,925] 76 root - INFO - \u2713 Data validation completed. Shape: (415, 4)
+[2025-09-17 10:47:25,925] 79 root - INFO - Step 3: Data Transformation
+[2025-09-17 10:47:25,925] 54 root - INFO - Starting data transformation
+[2025-09-17 10:47:25,928] 31 root - INFO - Creating ColumnTransformer for preprocessing
+[2025-09-17 10:47:25,928] 42 root - INFO - Preprocessor created successfully
+[2025-09-17 10:47:25,954] 71 root - INFO - Data transformation completed successfully
+[2025-09-17 10:47:25,954] 81 root - INFO - \u2713 Data transformation completed. Features: (415, 82), Labels: (415,)
+[2025-09-17 10:47:25,954] 84 root - INFO - Step 4: Preparing train-test split for model training
+[2025-09-17 10:47:25,957] 54 root - INFO - Starting data transformation
+[2025-09-17 10:47:25,970] 71 root - INFO - Data transformation completed successfully
+[2025-09-17 10:47:25,971] 54 root - INFO - Starting data transformation
+[2025-09-17 10:47:25,975] 71 root - INFO - Data transformation completed successfully
+[2025-09-17 10:47:25,975] 95 root - INFO - \u2713 Train-test split prepared. Train: (384, 82), Test: (96, 82)
+[2025-09-17 10:47:25,975] 98 root - INFO - Step 5: Model Training
+[2025-09-17 10:47:25,975] 40 root - INFO - Starting model training...
+[2025-09-17 10:47:25,975] 64 root - INFO - Training Random Forest...
+[2025-09-17 10:47:25,976] 91 root - ERROR - Error occurred in model training
+[2025-09-17 10:47:25,976] 148 root - ERROR - Error occurred in training pipeline
+[2025-09-17 10:47:25,976] 149 root - ERROR - Error occurred in python script name [C:\Users\SHAHID\Civic-Issue\src\ml\priority_predictor\model_trainer.py] line number [69] error message: Specifying the columns using strings is only supported for dataframes.
