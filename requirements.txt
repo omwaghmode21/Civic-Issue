@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 pandas
 numpy
 scikit-learn
@@ -11,3 +12,10 @@ transformers
 fastapi
 uvicorn
 Flask
+=======
+fastapi==0.115.0
+uvicorn==0.30.6
+passlib[bcrypt]==1.7.4
+pydantic==2.9.2
+SQLAlchemy==2.0.36
+>>>>>>> 3bd7d1bb94009f64ca068ed7b76319363857b7ab

@@ -1,0 +1,32 @@
+/* src/App.css */
+body {
+  background: #f8f9fa;
+}
+
+.nav-color {
+  background: #ffffff; /* Use hex code for white */
+}
+
+.navbar-brand .text-primary {
+  /* This ensures the Bootstrap primary color is always applied */
+  color: #0d6efd !important;
+}
+
+/* Add this to your main CSS file (e.g., App.css) */
+
+.no-style-link {
+  text-decoration: none; /* Removes the underline */
+  color: inherit;       /* Makes the link inherit the text color from its parent */
+}
+
+.no-style-link:hover {
+  text-decoration: none; /* Also remove underline on hover */
+  color: inherit;       /* Keep the color the same on hover */
+}
+
+/* Optional: Add a subtle effect to the cards on hover */
+.clickable-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.2s ease-in-out;
+}
