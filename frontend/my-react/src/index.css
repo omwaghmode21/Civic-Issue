@@ -1,0 +1,64 @@
+body { 
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #ff9933 0%, #ffffff 50%, #138808 100%);
+  background-attachment: fixed;
+}
+.container { max-width: 1000px; }
+
+.gradient-text {
+  background: linear-gradient(90deg, #ff7a18, #af002d 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 1rem;
+}
+
+.nav-link:hover { opacity: 0.9; }
+
+.btn-primary {
+  background: linear-gradient(45deg, #ff7a18, #ffae00);
+  border: none;
+}
+.btn-primary:hover { filter: brightness(0.95); }
+
+/* Hide any legacy error messages in footer */
+.footer .legacy-report,
+.footer .error,
+footer .legacy-report,
+footer .error { display: none !important; }
+
+/* Floating download button just above footer */
+.download-badge {
+  position: fixed;
+  right: 1rem;
+  bottom: 4.5rem;
+  z-index: 1030;
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: .6rem 1rem;
+  box-shadow: 0 6px 16px rgba(13,110,253,.4);
+  display: inline-flex;
+  align-items: center;
+}
+.download-badge:hover { background: #0b5ed7; }
+
+/* Optional dark theme via data-theme attribute */
+:root { color-scheme: light; }
+body[data-theme="dark"] {
+  background-color: #0b0f14;
+  color: #e6e6e6;
+  color-scheme: dark;
+}
+body[data-theme="system"] { color-scheme: light dark; }
