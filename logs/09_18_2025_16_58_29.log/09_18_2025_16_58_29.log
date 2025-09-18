@@ -1,0 +1,11 @@
+[2025-09-18 16:58:31,361] 25 root - INFO - Object loaded from: artifacts\models\random_forest.pkl
+[2025-09-18 16:58:31,361] 82 root - INFO - \u2713 Model loaded: random_forest
+[2025-09-18 16:58:31,362] 25 root - INFO - Object loaded from: artifacts\preprocessors\label_encoder.pkl
+[2025-09-18 16:58:31,362] 89 root - INFO - \u2713 Label encoder loaded
+[2025-09-18 16:58:31,391] 97 werkzeug - WARNING -  * Debugger is active!
+[2025-09-18 16:58:31,401] 97 werkzeug - INFO -  * Debugger PIN: 577-965-244
+[2025-09-18 17:02:33,038] 97 werkzeug - INFO -  * Detected change in 'C:\\Users\\SHAHID\\anaconda3\\Lib\\site-packages\\_pytest\\cacheprovider.py', reloading
+[2025-09-18 17:02:33,101] 97 werkzeug - INFO -  * Detected change in 'C:\\Users\\SHAHID\\anaconda3\\Lib\\site-packages\\_pytest\\fixtures.py', reloading
+[2025-09-18 17:02:33,557] 97 werkzeug - INFO -  * Detected change in 'C:\\Users\\SHAHID\\anaconda3\\Lib\\site-packages\\_pytest\\capture.py', reloading
+[2025-09-18 17:02:33,743] 97 werkzeug - INFO -  * Detected change in 'C:\\Users\\SHAHID\\anaconda3\\Lib\\site-packages\\_pytest\\doctest.py', reloading
+[2025-09-18 17:02:33,859] 97 werkzeug - INFO -  * Detected change in 'C:\\Users\\SHAHID\\anaconda3\\Lib\\site-packages\\_pytest\\junitxml.py', reloading

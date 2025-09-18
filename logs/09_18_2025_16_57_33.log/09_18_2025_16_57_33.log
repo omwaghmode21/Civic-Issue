@@ -1,0 +1,12 @@
+[2025-09-18 16:57:37,484] 25 root - INFO - Object loaded from: artifacts\models\random_forest.pkl
+[2025-09-18 16:57:37,484] 82 root - INFO - \u2713 Model loaded: random_forest
+[2025-09-18 16:57:37,487] 25 root - INFO - Object loaded from: artifacts\preprocessors\label_encoder.pkl
+[2025-09-18 16:57:37,487] 89 root - INFO - \u2713 Label encoder loaded
+[2025-09-18 16:57:37,656] 97 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.220.238.174:5000
+[2025-09-18 16:57:37,657] 97 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[2025-09-18 16:57:37,716] 97 werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+[2025-09-18 16:58:11,665] 97 werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+[2025-09-18 17:02:35,177] 97 werkzeug - INFO -  * Restarting with watchdog (windowsapi)

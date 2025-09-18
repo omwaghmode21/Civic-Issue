@@ -1,0 +1,45 @@
+[2025-09-18 16:50:59,383] 41 root - INFO - Starting model training...
+[2025-09-18 16:50:59,388] 84 root - INFO - Training Random Forest...
+[2025-09-18 16:51:00,471] 98 root - INFO - Random Forest Accuracy: 0.9236
+[2025-09-18 16:51:00,481] 99 root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.88      0.94      0.91        48
+           1       0.96      0.92      0.94        48
+           2       0.94      0.92      0.93        48
+
+    accuracy                           0.92       144
+   macro avg       0.93      0.92      0.92       144
+weighted avg       0.93      0.92      0.92       144
+
+[2025-09-18 16:51:00,483] 84 root - INFO - Training XGBoost...
+[2025-09-18 16:51:01,070] 98 root - INFO - XGBoost Accuracy: 0.8958
+[2025-09-18 16:51:01,082] 99 root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.83      0.90      0.86        48
+           1       0.94      0.92      0.93        48
+           2       0.93      0.88      0.90        48
+
+    accuracy                           0.90       144
+   macro avg       0.90      0.90      0.90       144
+weighted avg       0.90      0.90      0.90       144
+
+[2025-09-18 16:51:01,082] 84 root - INFO - Training Logistic Regression...
+[2025-09-18 16:51:01,155] 98 root - INFO - Logistic Regression Accuracy: 0.8889
+[2025-09-18 16:51:01,168] 99 root - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.81      0.90      0.85        48
+           1       0.92      0.92      0.92        48
+           2       0.95      0.85      0.90        48
+
+    accuracy                           0.89       144
+   macro avg       0.89      0.89      0.89       144
+weighted avg       0.89      0.89      0.89       144
+
+[2025-09-18 16:51:01,168] 104 root - INFO - Best Model: Random Forest with Accuracy: 0.9236
+[2025-09-18 16:51:01,306] 16 root - INFO - Object saved at: artifacts\models\random_forest.pkl
+[2025-09-18 16:51:01,322] 16 root - INFO - Object saved at: artifacts\models\xgb_model.pkl
+[2025-09-18 16:51:01,331] 16 root - INFO - Object saved at: artifacts\models\logistic_regression.pkl
+[2025-09-18 16:51:01,331] 110 root - INFO - All models saved successfully in artifacts/models

@@ -1,0 +1,11 @@
+[2025-09-18 16:57:44,753] 25 root - INFO - Object loaded from: artifacts\models\random_forest.pkl
+[2025-09-18 16:57:44,756] 82 root - INFO - \u2713 Model loaded: random_forest
+[2025-09-18 16:57:44,758] 25 root - INFO - Object loaded from: artifacts\preprocessors\label_encoder.pkl
+[2025-09-18 16:57:44,759] 89 root - INFO - \u2713 Label encoder loaded
+[2025-09-18 16:57:44,792] 97 werkzeug - WARNING -  * Debugger is active!
+[2025-09-18 16:57:44,860] 97 werkzeug - INFO -  * Debugger PIN: 577-965-244
+[2025-09-18 16:57:46,462] 97 werkzeug - INFO - 127.0.0.1 - - [18/Sep/2025 16:57:46] "GET /health HTTP/1.1" 200 -
+[2025-09-18 16:57:55,016] 97 werkzeug - INFO - 127.0.0.1 - - [18/Sep/2025 16:57:55] "POST /predict HTTP/1.1" 200 -
+[2025-09-18 16:58:10,310] 97 werkzeug - INFO -  * Detected change in 'C:\\Users\\SHAHID\\Civic-Issue\\backend\\flask_api.py', reloading
+[2025-09-18 16:58:10,314] 97 werkzeug - INFO -  * Detected change in 'C:\\Users\\SHAHID\\Civic-Issue\\backend\\flask_api.py', reloading
+[2025-09-18 16:58:10,319] 97 werkzeug - INFO -  * Detected change in 'C:\\Users\\SHAHID\\Civic-Issue\\backend\\flask_api.py', reloading
