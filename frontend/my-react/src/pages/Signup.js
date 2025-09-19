@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Signup({ onSignupSuccess }) {
   const ADMIN_VERIFY_CODE = 'ADMIN-2025';
@@ -44,26 +45,52 @@ function Signup({ onSignupSuccess }) {
       alert("❌ Please fill all required fields correctly.");
       return;
     }
-    const newUser = { username: formData.username, password: formData.password, role: formData.role, address: formData.address, department: formData.department || (formData.role === 'authority' ? 'All' : '') };
+    const departmentLookup = {
+      roads: 'road',
+      road: 'road',
+      electricity: 'electricity',
+      'waste management': 'waste management',
+      wastemanagement: 'waste management',
+    };
+    let normalizedDepartment = undefined;
+    if (formData.role === 'admin') {
+      if (!formData.department) {
+        alert('❌ Please select an Admin Department (Roads, Electricity, Waste Management).');
+        return;
+      }
+      normalizedDepartment = departmentLookup[(formData.department || '').toString().toLowerCase().trim()] || null;
+      if (!normalizedDepartment) {
+        alert('❌ Invalid department. Choose Roads, Electricity, or Waste Management.');
+        return;
+      }
+    }
+    // Map frontend fields to backend API
+    const payload = {
+      firstname: formData.fname,
+      lastname: formData.lname,
+      username: formData.username,
+      email: formData.email,
+      phone: formData.phone,
+      password: formData.password,
+      gender: (formData.gender || '').toString().toLowerCase() === 'male' ? 'Male' : (formData.gender || '').toString().toLowerCase() === 'female' ? 'Female' : (formData.gender || '').toString().toLowerCase() === 'other' ? 'Other' : 'Other',
+      address: formData.address,
+      DOB: formData.dob,
+      role: (formData.role || 'user').toString().toLowerCase(),
+      department: normalizedDepartment,
+      verificationCode: formData.role !== 'user' ? formData.verificationCode : undefined,
+    };
     try {
-      const profileKey = `profile:${formData.username}`;
-      const profile = {
-        name: `${formData.fname} ${formData.lname}`.trim(),
-        email: formData.email,
-        phone: formData.phone,
-        gender: formData.gender,
-        dob: formData.dob,
-        role: formData.role,
-        address: formData.address,
-        department: formData.department || '',
-        notifications: true,
-        theme: 'light',
-      };
-      localStorage.setItem(profileKey, JSON.stringify(profile));
-    } catch (_) {}
-    if (onSignupSuccess) onSignupSuccess(newUser);
-    alert("Signup Successful ✅ You can now login.");
-    navigate("/login");
+      const endpoint = process.env.REACT_APP_API_BASE || 'http://localhost:5000/api/auth/register';
+      await axios.post(endpoint, payload, {
+        withCredentials: true,
+        headers: { 'Content-Type': 'application/json' },
+      });
+      alert('Signup Successful ✅ You can now login.');
+      navigate('/login');
+    } catch (err) {
+      const message = err?.response?.data?.message || err.message || 'Registration failed';
+      alert(`❌ ${message}`);
+    }
   };
 
   return (

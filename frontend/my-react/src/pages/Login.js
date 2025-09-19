@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
+import axios from "axios";
 
 function Login({ setUser, registeredUsers }) {
   const [username, setUsername] = useState("");
@@ -33,25 +34,19 @@ function Login({ setUser, registeredUsers }) {
     submittedRef.current = true;
     setIsSubmitting(true);
     setError("");
-    // purely local auth
-    const presets = {
-      admin: { username: 'admin', password: 'password123', role: 'admin' },
-      authority: { username: 'authority', password: 'password123', role: 'authority' },
-      user: { username: 'user', password: 'password123', role: 'user' }
-    };
-    const preset = presets[role];
-    if (preset && username === preset.username && password === preset.password) {
-      finishLogin({ username, role: preset.role });
-      return;
-    }
-    const foundUser = (registeredUsers || []).find(
-      (u) => u.username === username && u.password === password
-    );
-    if (foundUser) {
-      const resolvedRole = foundUser.role || role || 'user';
-      finishLogin({ username, role: resolvedRole });
-    } else {
-      setError('Invalid credentials.');
+    try {
+      const endpoint = process.env.REACT_APP_LOGIN_API || 'http://localhost:5000/api/auth/login';
+      const { data } = await axios.post(
+        endpoint,
+        { usernameOrEmail: username, password },
+        { withCredentials: true, headers: { 'Content-Type': 'application/json' } }
+      );
+      const userObj = data?.user || { username, role };
+      // console.log(userObj);
+      finishLogin(userObj);
+    } catch (err) {
+      const message = err?.response?.data?.message || 'Invalid credentials.';
+      setError(message);
       submittedRef.current = false;
       setIsSubmitting(false);
     }

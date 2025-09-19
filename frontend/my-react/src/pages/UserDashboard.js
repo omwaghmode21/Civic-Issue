@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 import { motion } from "framer-motion";
-import { issues as allIssues, addIssue, setIssueRating } from "../mockDatabase";
+// Backend-backed data; mockDatabase is no longer used for listing
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Image, CardText } from "react-bootstrap-icons";
 import "leaflet/dist/leaflet.css";
@@ -41,30 +42,62 @@ function UserDashboard({ user }) {
   const [photoPreview, setPhotoPreview] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [sessionUser, setSessionUser] = useState(null);
 
   useEffect(() => {
+    // Fetch session user details
+    (async () => {
+      try {
+        const meEndpoint = process.env.REACT_APP_ME_API || 'http://localhost:5000/api/auth/me';
+        const { data } = await axios.get(meEndpoint, { withCredentials: true });
+        setSessionUser(data?.user || null);
+      } catch (_) {
+        setSessionUser(null);
+      }
+    })();
+
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
         const userCoords = { lat: latitude, lng: longitude };
         setCurrentLocation(userCoords);
-
-        const issuesNearby = allIssues.filter((issue) => {
-          const distance = getDistance(
-            userCoords.lat,
-            userCoords.lng,
-            issue.location?.lat,
-            issue.location?.lng
-          );
-          return distance <= 5; // 5 km radius
-        });
-
-        setNearbyIssues(issuesNearby);
-        setStatus(
-          issuesNearby.length > 0
-            ? `Found ${issuesNearby.length} issues near you.`
-            : "No issues found within 5km."
-        );
+        (async () => {
+          try {
+            const listEndpoint = process.env.REACT_APP_REPORT_API || 'http://localhost:5000/api/report';
+            const { data } = await axios.get(listEndpoint, { withCredentials: true });
+            const issues = Array.isArray(data?.issues) ? data.issues : [];
+            const normalized = issues.map((it) => ({
+              id: it.issueId || it.id,
+              title: it.title,
+              details: it.details,
+              category: it.category,
+              status: it.status,
+              photoUrl: it.photoUrl,
+              rating: typeof it.rating === 'number' ? it.rating : null,
+              reporter: it.reporter,
+              location: it.location,
+              date: (it.date && String(it.date).slice(0,10)) || new Date().toISOString().split('T')[0],
+              assigned: !!it.assigned,
+            }));
+            const issuesNearby = normalized.filter((issue) => {
+              const distance = getDistance(
+                userCoords.lat,
+                userCoords.lng,
+                issue?.location?.lat,
+                issue?.location?.lng
+              );
+              return distance <= 5;
+            });
+            setNearbyIssues(issuesNearby);
+            setStatus(
+              issuesNearby.length > 0
+                ? `Found ${issuesNearby.length} issues near you.`
+                : "No issues found within 5km."
+            );
+          } catch (err) {
+            setStatus('Failed to load issues from server.');
+          }
+        })();
       },
       () => {
         setStatus(
@@ -82,33 +115,60 @@ function UserDashboard({ user }) {
     }
   };
 
-  const finalizeSubmission = (locationData) => {
-    const newIssue = {
-      id: `CIV-${String(Date.now()).slice(-4)}`,
-      title: issueTitle,
-      details: issueDetails,
-      category: issueCategory,
-      status: "New",
-      photoUrl: photoPreview,
-      rating: null,
-      reporter: {
-        name: user?.name || user?.username || "Anonymous",
-        email: `${user?.username || "user"}@example.com`,
-        phone: "9999999999",
-      },
-      location: locationData,
-      date: new Date().toISOString().split("T")[0],
-      assigned: false,
-    };
-    addIssue(newIssue);
-    setNearbyIssues([...nearbyIssues, newIssue]);
-    setMessage(`✅ Thank you! Your issue has been reported successfully.`);
-    setIssueTitle("");
-    setIssueDetails("");
-    setIssueCategory("");
-    setIssuePhoto(null);
-    setPhotoPreview("");
-    setIsSubmitting(false);
+  const finalizeSubmission = async (locationData) => {
+    try {
+      const endpoint = process.env.REACT_APP_REPORT_API || 'http://localhost:5000/api/report';
+      const usernameVal = sessionUser?.username || user?.username || 'user';
+      const emailVal = sessionUser?.email || user?.email || `${usernameVal}@example.com`;
+      const phoneVal = sessionUser?.phone || user?.phone || '9999999999';
+      const payload = {
+        title: issueTitle,
+        details: issueDetails,
+        category: issueCategory,
+        photoUrl: photoPreview || undefined,
+        reporter: {
+          username: usernameVal,
+          email: emailVal,
+          phone: phoneVal,
+        },
+        location: locationData || undefined,
+      };
+      const { data } = await axios.post(endpoint, payload, {
+        withCredentials: true,
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const created = data?.issue;
+      if (created) {
+        // Normalize for map rendering expectations
+        const normalized = {
+          id: created.issueId || created.id,
+          title: created.title,
+          details: created.details,
+          category: created.category,
+          status: created.status,
+          photoUrl: created.photoUrl,
+          rating: created.rating ?? null,
+          reporter: created.reporter,
+          location: created.location,
+          date: (created.date && String(created.date).slice(0,10)) || new Date().toISOString().split('T')[0],
+          assigned: !!created.assigned,
+        };
+        setNearbyIssues([...nearbyIssues, normalized]);
+        setMessage(`✅ Thank you! Your issue has been reported successfully. ID: ${normalized.id}`);
+      } else {
+        setMessage('✅ Thank you! Your issue has been reported successfully.');
+      }
+    } catch (err) {
+      const message = err?.response?.data?.message || 'Failed to submit issue. Please try again.';
+      setMessage(`❌ ${message}`);
+    } finally {
+      setIssueTitle("");
+      setIssueDetails("");
+      setIssueCategory("");
+      setIssuePhoto(null);
+      setPhotoPreview("");
+      setIsSubmitting(false);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -291,7 +351,14 @@ function UserDashboard({ user }) {
                   <div className="mt-2">
                     <div className="mb-1">Rate the resolution:</div>
                     {[1,2,3,4,5].map(star => (
-                      <button key={star} className={`btn btn-sm ${issue.rating>=star? 'btn-warning':'btn-outline-warning'}`} onClick={() => { setIssueRating(issue.id, star); setNearbyIssues([...nearbyIssues]); }}>
+                      <button key={star} className={`btn btn-sm ${issue.rating>=star? 'btn-warning':'btn-outline-warning'}`} onClick={async () => {
+                        try {
+                          const patchEndpoint = (process.env.REACT_APP_REPORT_API || 'http://localhost:5000/api/report') + `/${encodeURIComponent(issue.id)}`;
+                          await axios.patch(patchEndpoint, { rating: star }, { withCredentials: true, headers: { 'Content-Type': 'application/json' } });
+                          const updated = nearbyIssues.map(it => it.id === issue.id ? { ...it, rating: star } : it);
+                          setNearbyIssues(updated);
+                        } catch (_) {}
+                      }}>
                         ★
                       </button>
                     ))}
