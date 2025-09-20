@@ -3,6 +3,7 @@ const Issue = require("../database/models/Issue");
 // POST /api/report
 const createIssue = async (req, res) => {
   try {
+    console.log("[createIssue] Incoming request body:", JSON.stringify(req.body, null, 2));
     const {
       title,
       details,
@@ -13,22 +14,30 @@ const createIssue = async (req, res) => {
     } = req.body;
 
     if (!title || !details || !category || !reporter?.username || !reporter?.email || !reporter?.phone) {
+      console.error("[createIssue] Missing required fields", { title, details, category, reporter });
       return res.status(400).json({ message: "Missing required fields" });
     }
 
     const issueId = `CIV-${String(Date.now()).slice(-6)}`;
-    const issue = await Issue.create({
-      issueId,
-      title,
-      details,
-      category,
-      photoUrl,
-      reporter,
-      location,
-    });
-    return res.status(201).json({ message: "Issue reported", issue });
+    try {
+      const issue = await Issue.create({
+        issueId,
+        title,
+        details,
+        category,
+        photoUrl,
+        reporter,
+        location,
+      });
+      console.log("[createIssue] Issue created successfully:", issue);
+      return res.status(201).json({ message: "Issue reported", issue });
+    } catch (dbError) {
+      console.error("[createIssue] Error while saving issue to DB:", dbError);
+      return res.status(500).json({ message: "Failed to create issue (DB error)", error: dbError.message });
+    }
   } catch (error) {
-    return res.status(500).json({ message: "Failed to create issue", error: error.message });
+    console.error("[createIssue] Unexpected error:", error);
+    return res.status(500).json({ message: "Failed to create issue (unexpected error)", error: error.message });
   }
 };
 
