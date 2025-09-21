@@ -3,23 +3,30 @@ import { motion } from 'framer-motion';
 import { CheckCircleFill, HourglassSplit, GearFill, GeoAlt } from 'react-bootstrap-icons';
 import { useLocation } from 'react-router-dom';
 
+// Sub-component for progress timeline
 const StatusTimeline = ({ status }) => {
-  // ... (This sub-component remains the same)
   const steps = [
     { name: 'Reported', icon: <CheckCircleFill /> },
     { name: 'In Progress', icon: <HourglassSplit /> },
     { name: 'Resolved', icon: <GearFill /> }
   ];
+
   const getStepStatus = (stepName) => {
     if (status === 'Resolved') return 'completed';
     if (status === 'In Progress' && (stepName === 'Reported' || stepName === 'In Progress')) return 'completed';
     if (status === 'New' && stepName === 'Reported') return 'completed';
     return 'pending';
   };
+
   return (
     <div className="timeline" role="list" aria-label="Issue progress timeline">
       {steps.map((step) => (
-        <div key={step.name} className={`timeline-step ${getStepStatus(step.name)}`} role="listitem" aria-current={getStepStatus(step.name) === 'completed' ? 'step' : undefined}>
+        <div
+          key={step.name}
+          className={`timeline-step ${getStepStatus(step.name)}`}
+          role="listitem"
+          aria-current={getStepStatus(step.name) === 'completed' ? 'step' : undefined}
+        >
           <div className="timeline-icon">{step.icon}</div>
           <div className="timeline-label">{step.name}</div>
         </div>
@@ -34,6 +41,8 @@ function TrackProgress() {
   const [error, setError] = useState('');
   const [userRating, setUserRating] = useState(0);
   const [ratingSaved, setRatingSaved] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const location = useLocation();
   const params = useMemo(() => new URLSearchParams(location.search), [location.search]);
   const qpIssueId = params.get('issueId') || localStorage.getItem('lastIssueId') || '';
@@ -46,22 +55,35 @@ function TrackProgress() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [qpIssueId]);
 
-  const handleSearch = (e, forcedId) => {
+  const handleSearch = async (e, forcedId) => {
     if (e) e.preventDefault();
     setError('');
     setFoundIssue(null);
+    setRatingSaved(false);
+
     const id = (forcedId ?? searchId).trim();
     if (!id) {
       setError('Please enter an Issue ID.');
       return;
     }
-    const { issues, updateIssue } = require('../mockDatabase');
-    const issue = issues.find(i => (i.id || '').toLowerCase() === id.toLowerCase());
-    if (issue) {
-      setFoundIssue(issue);
-      (issue).__saveRating = (rating) => updateIssue(issue.id, { rating });
-    } else {
-      setError(`No issue found with ID "${id}". Please check the ID and try again.`);
+
+    try {
+      setLoading(true);
+      const res = await fetch(`http://localhost:5000/api/report/${id}`);
+      if (!res.ok) {
+        throw new Error(`No issue found with ID "${id}"`);
+      }
+      const data = await res.json();
+      console.log('Fetched issue:', data);
+
+      // ✅ unwrap from { issue: {...} }
+      setFoundIssue(data.issue);
+
+      localStorage.setItem('lastIssueId', id);
+    } catch (err) {
+      setError(err.message || 'Failed to fetch issue.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -72,15 +94,20 @@ function TrackProgress() {
     return `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}#map=16/${lat}/${lng}`;
   }, [foundIssue]);
 
-  const handleSaveRating = () => {
+  const handleSaveRating = async () => {
     if (!foundIssue || !userRating) return;
     try {
-      foundIssue.__saveRating?.(userRating);
+      const res = await fetch(`/api/issues/${foundIssue.issueId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ rating: userRating }),
+      });
+      if (!res.ok) throw new Error('Failed to save rating');
       setRatingSaved(true);
-      localStorage.setItem(`rating:${foundIssue.id}`, String(userRating));
+      localStorage.setItem(`rating:${foundIssue.issueId}`, String(userRating));
     } catch {
       setRatingSaved(true);
-      localStorage.setItem(`rating:${foundIssue.id}`, String(userRating));
+      localStorage.setItem(`rating:${foundIssue.issueId}`, String(userRating));
     }
   };
 
@@ -91,7 +118,6 @@ function TrackProgress() {
       animate={{ opacity: 1, y: 0 }}
     >
       <style>{`
-        /* Accessible green timeline with consistent sizing and contrast */
         .timeline { display: flex; justify-content: space-between; position: relative; padding-top: .5rem; }
         .timeline::before { content: ''; position: absolute; top: 1.25rem; left: 10%; width: 80%; height: 4px; background-color: #198754; transform: translateY(-50%); }
         .timeline-step { display: flex; flex-direction: column; align-items: center; text-align: center; width: 33%; position: relative; }
@@ -119,7 +145,9 @@ function TrackProgress() {
                 value={searchId}
                 onChange={(e) => setSearchId(e.target.value)}
               />
-              <button className="btn btn-primary" type="submit">Track</button>
+              <button className="btn btn-primary" type="submit" disabled={loading}>
+                {loading ? 'Searching...' : 'Track'}
+              </button>
             </div>
           </form>
 
@@ -132,18 +160,30 @@ function TrackProgress() {
               animate={{ scale: 1, opacity: 1 }}
             >
               <div className="card-header bg-light fs-5 d-flex justify-content-between align-items-center">
-                <span>Status for Issue ID: <strong>{foundIssue.id}</strong></span>
+                <span>
+                  Status for Issue ID: <strong>{foundIssue.issueId || 'N/A'}</strong>
+                </span>
                 {foundIssue.location && (
-                  <a className="btn btn-outline-success btn-sm" href={mapUrl} target="_blank" rel="noreferrer" aria-label={`Open map for ${foundIssue.id}`}>
+                  <a
+                    className="btn btn-outline-success btn-sm"
+                    href={mapUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Open map for ${foundIssue.issueId}`}
+                  >
                     <GeoAlt className="me-1" /> Open Map
                   </a>
                 )}
               </div>
               <div className="card-body p-4">
-                <h4 className="card-title">{foundIssue.title}</h4>
+                <h4 className="card-title">{foundIssue.title || 'No title available'}</h4>
                 <p className="card-text text-muted">
-                  Reported on: {foundIssue.date} | Category: {foundIssue.category}
+                  Reported on: {foundIssue.date ? new Date(foundIssue.date).toLocaleDateString() : 'Unknown'} | 
+                  Category: {foundIssue.category || 'N/A'} | 
+                  Status: {foundIssue.status || 'N/A'}
                 </p>
+                <p><strong>Details:</strong> {foundIssue.details || 'No details provided'}</p>
+
                 <hr className="my-4" />
                 <h5 className="mb-4">Progress Timeline</h5>
                 <StatusTimeline status={foundIssue.status} />
@@ -170,7 +210,12 @@ function TrackProgress() {
                           {n}★
                         </button>
                       ))}
-                      <button type="button" className="btn btn-primary btn-sm ms-2" disabled={!userRating} onClick={handleSaveRating}>
+                      <button
+                        type="button"
+                        className="btn btn-primary btn-sm ms-2"
+                        disabled={!userRating}
+                        onClick={handleSaveRating}
+                      >
                         Save Rating
                       </button>
                     </div>

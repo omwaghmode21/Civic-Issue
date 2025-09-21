@@ -47,6 +47,7 @@ const getIssueById = async (req, res) => {
     const { issueId } = req.params;
     const issue = await Issue.findOne({ issueId });
     if (!issue) return res.status(404).json({ message: "Issue not found" });
+    console.log("[getIssueById] Issue found:", issue);
     return res.status(200).json({ issue });
   } catch (error) {
     return res.status(500).json({ message: "Failed to fetch issue", error: error.message });
