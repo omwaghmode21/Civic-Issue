@@ -13,7 +13,7 @@ const teamMembers = [
 const faqs = [
   {
     eventKey: '0',
-    question: 'How does Civic Connect work?',
+    question: 'How does UNNATI work?',
     answer: 'You can report an issue through our "Report Issues" page by filling out a simple form with details and a photo. Our system then routes this report to the correct municipal department. You can track the progress using your unique Issue ID on the "Track Progress" page.'
   },
   {

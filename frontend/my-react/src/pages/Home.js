@@ -10,7 +10,7 @@ function Home() {
       <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm glass-card">
         <div className="container">
           <Link className="navbar-brand fw-bold" to="/">
-            <span className="gradient-text">Civic Connect</span>
+            <span className="gradient-text">UNNATI</span>
           </Link>
           <button
             className="navbar-toggler"
@@ -108,7 +108,7 @@ function Home() {
 
         {/* 3. "How It Works" Section */}
         <div className="text-center mb-5">
-          <h2 className="fw-bold gradient-text">How Civic Connect Works</h2>
+          <h2 className="fw-bold gradient-text">How UNNATI Works</h2>
           <p className="text-muted">
             Simple, effective tools to report issues and track improvements in
             your community.
@@ -217,7 +217,7 @@ function Home() {
           </h2>
           <p className="lead col-lg-8 mx-auto">
             Join thousands of citizens who are actively improving their
-            neighborhoods through Civic Connect.
+            neighborhoods through UNNATI.
           </p>
           <div className="mt-4">
             {/* Removed bottom CTA to report issues */}
@@ -236,7 +236,7 @@ function Home() {
         <div className="container">
           <div className="row">
             <div className="col-lg-4 mb-4 mb-lg-0">
-              <h5 className="fw-bold">Civic Connect</h5>
+              <h5 className="fw-bold">UNNATI</h5>
               <p className="text-muted">
                 Connecting communities to better solutions, one report at a
                 time.
@@ -286,7 +286,7 @@ function Home() {
           </div>
           <hr />
           <p className="text-center text-muted small mb-0">
-            &copy; 2025 Civic Connect. All rights reserved.
+            &copy; 2025 UNNATI. All rights reserved.
           </p>
         </div>
       </footer>
