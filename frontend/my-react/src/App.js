@@ -53,7 +53,7 @@ function App() {
         <Route path="/download" element={<Download />} />
         <Route path="/settings" element={<ProtectedRoute><Settings user={currentUser} setUser={setUser} /></ProtectedRoute>} />
         <Route path="/user-dashboard" element={<ProtectedRoute><UserDashboard user={currentUser} /></ProtectedRoute>} />
-        <Route path="/admin-dashboard" element={<ProtectedRoute requiredRole="admin"><AdminDashboard user={currentUser} /></ProtectedRoute>} />
+  <Route path="/admin-dashboard" element={<ProtectedRoute requiredRole="admin"><AdminDashboard user={currentUser} /></ProtectedRoute>} />
         <Route path="/authority-dashboard" element={<ProtectedRoute requiredRole="authority"><AuthorityDashboard user={currentUser} /></ProtectedRoute>} />
         <Route path="/unauthorized" element={<Unauthorized />} />
       </Routes>

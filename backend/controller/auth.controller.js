@@ -103,8 +103,18 @@ const register = async (req, res) => {
     const { password: _pw, ...safeUser } = user.toObject();
     return res.status(201).json({ message: "User registered successfully", user: safeUser });
   } catch (error) {
-    console.log(error.message);
-
+    console.error("[register] Error:", error);
+    // Mongoose validation error
+    if (error.name === 'ValidationError') {
+      const messages = Object.values(error.errors).map(e => e.message);
+      return res.status(400).json({ message: "Validation error", errors: messages });
+    }
+    // Duplicate key error (should be handled above, but just in case)
+    if (error.code === 11000) {
+      const field = Object.keys(error.keyValue)[0];
+      return res.status(409).json({ message: `Duplicate value for field: ${field}` });
+    }
+    // Other errors
     return res.status(500).json({ message: "Registration failed", error: error.message });
   }
 };

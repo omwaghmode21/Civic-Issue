@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Image, CardText, GeoAlt } from 'react-bootstrap-icons';
-import { addIssue } from '../mockDatabase';
 import { Link, useLocation } from 'react-router-dom';
+import axios from 'axios';
+import { API_BASE_URL } from '../config';
 
 // ... (The rest of the ReportIssues component code remains the same as the previous correct version)
 // It already correctly imports 'addIssue' from '../mockDatabase'
@@ -38,35 +39,53 @@ function ReportIssues({ user }) {
     }
   };
 
-  const finalizeSubmission = (locationData) => {
-    const newIssueId = `CIV-${String(Date.now()).slice(-6)}`;
-    const newIssue = {
-      id: newIssueId,
-      title: issueTitle,
-      details: issueDetails,
-      category: issueCategory,
-      status: 'New',
-      photoUrl: photoPreview,
-      reporter: { name: user.name || user.username, email: `${user.username}@example.com`, phone: '9999999999' },
-      location: locationData,
-      subIssues: [],
-      rating: null,
-      date: new Date().toISOString().split('T')[0],
-      assigned: false,
-    };
-    addIssue(newIssue);
-    localStorage.setItem('lastIssueId', newIssueId);
-    setCreatedIssueId(newIssueId);
-    setMessage(`✅ Thank you! Your issue has been reported successfully.`);
-    setIssueTitle('');
-    setIssueDetails('');
-    setIssueCategory('');
-    setIssuePhoto(null);
-    setPhotoPreview('');
-    setIsSubmitting(false);
+  const finalizeSubmission = async (locationData) => {
+    try {
+      let uploadedPhotoUrl = '';
+      if (issuePhoto) {
+        const formData = new FormData();
+        formData.append('photo', issuePhoto);
+        const uploadRes = await axios.post(`${API_BASE_URL}/upload/photo`, formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        });
+        uploadedPhotoUrl = uploadRes.data.url;
+      }
+      const payload = {
+        title: issueTitle,
+        details: issueDetails,
+        category: issueCategory,
+        photoUrl: uploadedPhotoUrl,
+        reporter: {
+          username: user.username,
+          email: user.email || `${user.username}@example.com`,
+          phone: user.phone || '9999999999',
+        },
+        location: locationData,
+      };
+      const { data } = await axios.post(`${API_BASE_URL}/report`, payload, {
+        withCredentials: true,
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const created = data?.issue;
+      if (created) {
+        setCreatedIssueId(created.issueId || created.id);
+        setMessage(`✅ Thank you! Your issue has been reported successfully.`);
+      } else {
+        setMessage('✅ Thank you! Your issue has been reported successfully.');
+      }
+    } catch (err) {
+      setMessage('❌ Failed to submit issue. Please try again.');
+    } finally {
+      setIssueTitle('');
+      setIssueDetails('');
+      setIssueCategory('');
+      setIssuePhoto(null);
+      setPhotoPreview('');
+      setIsSubmitting(false);
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!issueTitle || !issueDetails || !issuePhoto || !issueCategory) {
       setMessage('⚠️ Please fill all fields, select a category, and upload a photo.');
@@ -75,16 +94,16 @@ function ReportIssues({ user }) {
     setIsSubmitting(true);
     setMessage('Getting your location...');
     if (!('geolocation' in navigator)) {
-      finalizeSubmission(null);
+      await finalizeSubmission(null);
       return;
     }
     navigator.geolocation.getCurrentPosition(
-      (position) => {
+      async (position) => {
         const { latitude, longitude } = position.coords;
-        finalizeSubmission({ lat: latitude, lng: longitude });
+        await finalizeSubmission({ lat: latitude, lng: longitude });
       },
-      () => {
-        finalizeSubmission(null);
+      async () => {
+        await finalizeSubmission(null);
       },
       { enableHighAccuracy: true, timeout: 5000, maximumAge: 60000 }
     );

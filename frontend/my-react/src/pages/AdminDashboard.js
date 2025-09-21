@@ -82,7 +82,12 @@ function AdminDashboard({ user }) {
 
   // Sort issues by priority: high first, then others
   const sortedIssues = useMemo(() => {
-    const priorityValue = (i) => i.priority === 'high' || /emergency|outage|accident/i.test(i.title || '') || i.status === 'In Progress' ? 2 : (i.priority === 'low' || i.status === 'New' ? 0 : 1);
+    // Sort strictly by ML priority: high > medium > low
+    const priorityValue = (i) => {
+      if (i.priority === 'high') return 2;
+      if (i.priority === 'medium') return 1;
+      return 0; // low or undefined
+    };
     let filtered = issues;
     if (statusFilter !== 'All') {
       filtered = issues.filter(i => i.status === statusFilter);
@@ -146,7 +151,9 @@ function AdminDashboard({ user }) {
   return (
     <div className="container-fluid mt-4">
         <div className="d-flex align-items-center justify-content-between">
-          <h2 className="mb-0">👑 Admin Dashboard</h2>
+          <div className="d-flex align-items-center gap-3">
+            <h2 className="mb-0">👑 Admin Dashboard</h2>
+          </div>
           <div>
             <Button variant="outline-primary" size="sm" onClick={handleRefresh} className="me-2">
               🔄 Refresh
